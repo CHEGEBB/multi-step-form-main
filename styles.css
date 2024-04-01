@@ -1,0 +1,178 @@
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCp6KVjbNBYlgoKejZftWyI.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCu6KVjbNBYlgoKeg7z.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCp6KVjbNBYlgoKejYHtGyI.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCp6KVjbNBYlgoKejZPsmyI.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCv6KVjbNBYlgoC1CzTtw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCs6KVjbNBYlgo6eA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCv6KVjbNBYlgoCjC3Ttw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCv6KVjbNBYlgoCxCvTtw.ttf) format('truetype');
+}
+body {
+  background-color: hsl(217, 100%, 97%);
+  font-family: Ubuntu;
+}
+.container {
+  background-color: hsl(0, 0%, 100%);
+  width: 550px;
+  height: 510px;
+  margin-left: 250px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 300px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+}
+.steps {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 460px;
+  width: 230px;
+  background-image: url("assets/images/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  padding-top: 20px;
+  z-index: 1000;
+  margin-top: 65px;
+  margin-left: 270px;
+  border-radius: 10px;
+}
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.logo {
+  width: 50px;
+}
+.sidebar-step {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+.sidebar-step:hover .sidebar-step-circle {
+  background-color: #777;
+}
+.sidebar-step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+.sidebar-step-text {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.personal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.personal-content p {
+  margin-top: -10px;
+}
+.step-1 {
+  margin-top: -10px;
+}
+input {
+  width: 450px;
+  height: 40px;
+  border: 1.4px solid hsl(231, 11%, 63%);
+  border-radius: 7px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  outline: none;
+}
+button {
+  width: 100px;
+  height: 40px;
+  background-color: hsl(213, 96%, 18%);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 25px;
+  margin-left: 370px;
+}
+.navigation-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.navigation-buttons button {
+  margin: 0;
+  padding: 0;
+  margin-right: 5px;
+}
+.hide {
+  display: none;
+}
+.sidebar-step.active .sidebar-step-circle {
+  background-color: hsl(206, 94%, 87%);
+  color: black;
+  border: 0;
+}
