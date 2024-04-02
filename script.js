@@ -155,8 +155,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const yearlyContentArcade = '<img src="./assets/images/icon-arcade.svg" alt="Arcade"><div class="arc">Arcade</div><div class="price"> $90/yr</div><div class="free" style="color:hsl(213, 96%, 18%);font-weight:500;margin-left:15px;font-size:14px;">2 months free</div>';
         const yearlyContentAdvanced = '<img src="./assets/images/icon-advanced.svg" alt="Advanced"><div class="ad">Advanced</div><div class="price2"> $120/yr</div><div class="free" style="color:hsl(213, 96%, 18%);font-weight:500;margin-left:15px;font-size:14px;">2 months free</div>';
         const yearlyContentPro = '<img src="./assets/images/icon-pro.svg" alt="Pro"><div class="pr">Pro</div><div class="price3"> $150/yr</div><div class="free" style="color:hsl(213, 96%, 18%);font-weight:500;margin-left:15px;font-size:14px;">2 months free</div>';
-        const yearlyOnlineService = '<div class="service" style="display:flex;flex-directiona:row;"><input type="checkbox" id="online-service" class="addon-checkbox"><label for="online-service"><h3>Online service</h3><p>Access to multiplayer games</p></div><div class="price1"> +$10/yr</div></div>';
-        const monthlyAddonOnlineService = '<div class="service"><h3>Online service</h3><p>Access to multiplayer games</p></div><div class="price1"> +$1/mo</div></div>';
+        const yearlyOnlineService = '<div class="service" style="display:flex;flex-direction:row;gap:20px;"><input type="checkbox" id="online-service" class="addon-checkbox"><label for="online-service"><h3>Online service</h3><p>Access to multiplayer games</p></label></div><div class="price1"> +$10/yr</div>';
+        const monthlyAddonOnlineService = '<div class="service" style="display:flex;flex-direction:row;gap:20px;"><input type="checkbox" id="online-service" class="addon-checkbox"><label for="online-service"><h3>Online service</h3><p>Access to multiplayer games</p></label></div><div class="price1"> +$1/mo</div>';
+        const yearlyAddonStorage = '<div class="storage" style="display:flex;flex-direction:row;gap:20px;"><input type="checkbox" id="storage" class="addon-checkbox"><label for="storage"><h3>Larger storage</h3><p>Extra 1TB of cloud save</p></label><div class="price1"> +$20/yr</div></div>';
+        const monthlyAddonStorage = '<div class="storage" style="display:flex;flex-direction:row;gap:20px;"><input type="checkbox" id="storage" class="addon-checkbox"><label for="storage"><h3>Larger storage</h3><p>Extra 1TB of cloud save</p></label><div class="price1"> +$2/mo</div></div>';
+        const yearlyAddonProfile = '<div class="profile" style="display:flex;flex-direction:row;gap:20px;"><input type="checkbox" id="profile" class="addon-checkbox"><label for="profile"><h3>Customizable Profile</h3><p>Custom theme on your profile</p></label><div class="price1"> +$20/yr</div></div>';
+        const monthlyAddonProfile = '<div class="profile" style="display:flex;flex-direction:row;gap:20px;"><input type="checkbox" id="profile" class="addon-checkbox"><label for="profile"><h3>Customizable Profile</h3><p>Custom theme on your profile</p></label><div class="price1"> +$2/mo</div></div>'
 
         if (this.checked) {
             // If yearly plan is selected
@@ -168,6 +172,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.advanced').innerHTML = yearlyContentAdvanced;
             document.querySelector('.pro').innerHTML = yearlyContentPro;
             document.querySelector('.online').innerHTML = yearlyOnlineService;
+            document.querySelector('.storage').innerHTML = yearlyAddonStorage;
+            document.querySelector('.profile').innerHTML = yearlyAddonProfile;
         } else {
             // If monthly plan is selected
             document.querySelector('.monthly').style.display = 'inline';
@@ -178,6 +184,8 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.advanced').innerHTML = '<img src="./assets/images/icon-advanced.svg" alt="Advanced"><div class="ad">Advanced</div><div class="price2"> $12/mo</div>';
             document.querySelector('.pro').innerHTML = '<img src="./assets/images/icon-pro.svg" alt="Pro"><div class="pr">Pro</div><div class="price3"> $15/mo</div>';
             document.querySelector('.online').innerHTML = monthlyAddonOnlineService;
+            document.querySelector('.storage').innerHTML = monthlyAddonStorage;
+            document.querySelector('.profile').innerHTML = monthlyAddonProfile;
         }
     });
 
