@@ -149,6 +149,34 @@ document.addEventListener('DOMContentLoaded', function() {
         thirdActive.parentElement.classList.add('active');
     });
 
+    const toggleInput = document.getElementById('toggle');
+
+    toggleInput.addEventListener('change', function() {
+        const yearlyContentArcade = '<div class="arcade"><img src="./assets/images/icon-arcade.svg" alt="Arcade"><div class="arc">Arcade</div><div class="price"> $90/yr</div><div class="free" style ="color:hsl(213, 96%, 18%);font-weight:500;margin-left:15px;font-size:14px;">2 months free</div></div>';
+        const yearlyContentAdvanced = '<div class="advanced"><img src="./assets/images/icon-advanced.svg" alt="Advanced"><div class="ad">Advanced</div><div class="price2"> $120/yr</div><div class="free" style ="color:hsl(213, 96%, 18%);font-weight:500;margin-left:15px;font-size:14px;">2 months free</div></div>';
+        const yearlyContentPro = '<div class="pro"><img src="./assets/images/icon-pro.svg" alt="Pro"><div class="pr">Pro</div><div class="price3"> $150/yr</div><div class="free" style ="color:hsl(213, 96%, 18%);font-weight:500;margin-left:15px;font-size:14px;">2 months free</div></div>';
+
+        if (this.checked) {
+            // If yearly plan is selected
+            document.querySelector('.monthly').style.display = 'none';
+            document.querySelector('.yearly').style.display = 'inline';
+
+            // Replace monthly prices with yearly prices
+            document.querySelector('.arcade').innerHTML = yearlyContentArcade;
+            document.querySelector('.advanced').innerHTML = yearlyContentAdvanced;
+            document.querySelector('.pro').innerHTML = yearlyContentPro;
+        } else {
+            // If monthly plan is selected
+            document.querySelector('.monthly').style.display = 'inline';
+            document.querySelector('.yearly').style.display = 'none';
+
+            // Restore monthly prices
+            document.querySelector('.arcade').innerHTML = '<img src="./assets/images/icon-arcade.svg" alt="Arcade"><div class="arc">Arcade</div><div class="price"> $9/mo</div>';
+            document.querySelector('.advanced').innerHTML = '<img src="./assets/images/icon-advanced.svg" alt="Advanced"><div class="ad">Advanced</div><div class="price2"> $12/mo</div>';
+            document.querySelector('.pro').innerHTML = '<img src="./assets/images/icon-pro.svg" alt="Pro"><div class="pr">Pro</div><div class="price3"> $15/mo</div>';
+        }
+    });
+
 
 
 
