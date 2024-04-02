@@ -211,8 +211,14 @@ button {
         flex-direction: row;
         
     }
-    .online h3{
+    .online h3,.storage h3,.profile h3{
         font-size: 15px;
+        color: hsl(213, 96%, 18%);
+    }
+    .online p,.storage p,.profile p{
+        font-size: 14px;
+        color: hsl(231, 11%, 63%);
+        margin-top: -10px;
     }
     .storage{
         border: 1.5px solid hsl(243, 100%, 62%);
@@ -230,6 +236,27 @@ button {
         display: flex;
         flex-direction: row;
     }
-
-
+    .price1,.price3{
+        font-weight: 500;
+        font-size: 14px;
+        color:hsl(243, 100%, 62%);
+        margin-left: 100px;
+        margin-top: 20px;
+    }
+    .price2{
+        font-weight: 500;
+        font-size: 14px;
+        color:hsl(243, 100%, 62%);
+        margin-left: 140px;
+        margin-top: 20px;
+    }
+    .service,.service2,.service3{
+        margin-left: 20px;
+    }
+    input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
 }
