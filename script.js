@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const secondActive = document.getElementById('step-2-circle');
     const thirdActive = document.getElementById('step-3-circle');
     const fourthActive = document.getElementById('step-4-circle');
+    const backOne = document.querySelector('#back-one');
+    const backTwo = document.querySelector('#back-two');
+    const backThree = document.querySelector('#back-three');
 
 
     firstActive.parentElement.classList.add('active');
@@ -87,6 +90,41 @@ document.addEventListener('DOMContentLoaded', function() {
         successMessage.classList.add('hide');
         removeActiveClassFromAllCircles();
         secondActive.parentElement.classList.add('active');
+    });
+
+    backOne.addEventListener('click', (e) => {
+        e.preventDefault();
+        personalInfo.classList.remove('hide');
+        plan.classList.add('hide');
+        addons.classList.add('hide');
+        finish.classList.add('hide');
+        successMessage.classList.add('hide');
+        removeActiveClassFromAllCircles();
+        firstActive.parentElement.classList.add('active');
+
+    });
+
+    backTwo.addEventListener('click', (e) => {
+        e.preventDefault();
+        personalInfo.classList.add('hide');
+        plan.classList.remove('hide');
+        addons.classList.add('hide');
+        finish.classList.add('hide');
+        successMessage.classList.add('hide');
+        removeActiveClassFromAllCircles();
+        secondActive.parentElement.classList.add('active');
+
+    });
+
+    backThree.addEventListener('click', (e) => {
+        e.preventDefault();
+        personalInfo.classList.add('hide');
+        plan.classList.add('hide');
+        addons.classList.remove('hide');
+        finish.classList.add('hide');
+        successMessage.classList.add('hide');
+        removeActiveClassFromAllCircles();
+        thirdActive.parentElement.classList.add('active');
     });
 
 
