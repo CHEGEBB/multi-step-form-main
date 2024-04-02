@@ -10,6 +10,51 @@
 
     <title>Frontend Mentor | Multi-step form</title>
     <link rel="stylesheet" href="./styles.css">
+    <style>
+        /* a toggle slider button switch sliding well styled and sliding  */
+        
+        .toggle {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 22px;
+        }
+        
+        .toggle__input {
+            display: none;
+        }
+        
+        .toggle__label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: hsl(213, 96%, 18%);
+            border-radius: 34px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .toggle__ball {
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 18px;
+            height: 18px;
+            background-color: #fff;
+            border-radius: 50%;
+            transition: transform 0.3s;
+        }
+        
+        .toggle__input:checked+.toggle__label {
+            background-color: hsl(213, 96%, 18%);
+        }
+        
+        .toggle__input:checked+.toggle__label .toggle__ball {
+            transform: translateX(26px);
+        }
+    </style>
 </head>
 
 <body>
@@ -93,7 +138,18 @@
                         </div>
                     </div>
                     <div class="time-period">
-                        Monthly Yearly
+                        <div class="monthly">
+                            Monthly
+                        </div>
+                        <div class="toggle">
+                            <input type="checkbox" id="toggle" class="toggle__input">
+                            <label for="toggle" class="toggle__label">
+                                <div class="toggle__ball"></div>
+                            </label>
+                        </div>
+                        <div class="yearly">
+                            Yearly
+                        </div>
                     </div>
                 </div>
                 <div class="navigation-buttons">
