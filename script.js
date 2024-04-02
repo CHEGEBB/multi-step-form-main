@@ -152,9 +152,11 @@ document.addEventListener('DOMContentLoaded', function() {
     const toggleInput = document.getElementById('toggle');
 
     toggleInput.addEventListener('change', function() {
-        const yearlyContentArcade = '<div class="arcade"><img src="./assets/images/icon-arcade.svg" alt="Arcade"><div class="arc">Arcade</div><div class="price"> $90/yr</div><div class="free" style ="color:hsl(213, 96%, 18%);font-weight:500;margin-left:15px;font-size:14px;">2 months free</div></div>';
-        const yearlyContentAdvanced = '<div class="advanced"><img src="./assets/images/icon-advanced.svg" alt="Advanced"><div class="ad">Advanced</div><div class="price2"> $120/yr</div><div class="free" style ="color:hsl(213, 96%, 18%);font-weight:500;margin-left:15px;font-size:14px;">2 months free</div></div>';
-        const yearlyContentPro = '<div class="pro"><img src="./assets/images/icon-pro.svg" alt="Pro"><div class="pr">Pro</div><div class="price3"> $150/yr</div><div class="free" style ="color:hsl(213, 96%, 18%);font-weight:500;margin-left:15px;font-size:14px;">2 months free</div></div>';
+        const yearlyContentArcade = '<img src="./assets/images/icon-arcade.svg" alt="Arcade"><div class="arc">Arcade</div><div class="price"> $90/yr</div><div class="free" style="color:hsl(213, 96%, 18%);font-weight:500;margin-left:15px;font-size:14px;">2 months free</div>';
+        const yearlyContentAdvanced = '<img src="./assets/images/icon-advanced.svg" alt="Advanced"><div class="ad">Advanced</div><div class="price2"> $120/yr</div><div class="free" style="color:hsl(213, 96%, 18%);font-weight:500;margin-left:15px;font-size:14px;">2 months free</div>';
+        const yearlyContentPro = '<img src="./assets/images/icon-pro.svg" alt="Pro"><div class="pr">Pro</div><div class="price3"> $150/yr</div><div class="free" style="color:hsl(213, 96%, 18%);font-weight:500;margin-left:15px;font-size:14px;">2 months free</div>';
+        const yearlyOnlineService = '<div class="service" style="display:flex;flex-directiona:row;"><input type="checkbox" id="online-service" class="addon-checkbox"><label for="online-service"><h3>Online service</h3><p>Access to multiplayer games</p></div><div class="price1"> +$10/yr</div></div>';
+        const monthlyAddonOnlineService = '<div class="service"><h3>Online service</h3><p>Access to multiplayer games</p></div><div class="price1"> +$1/mo</div></div>';
 
         if (this.checked) {
             // If yearly plan is selected
@@ -165,6 +167,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.arcade').innerHTML = yearlyContentArcade;
             document.querySelector('.advanced').innerHTML = yearlyContentAdvanced;
             document.querySelector('.pro').innerHTML = yearlyContentPro;
+            document.querySelector('.online').innerHTML = yearlyOnlineService;
         } else {
             // If monthly plan is selected
             document.querySelector('.monthly').style.display = 'inline';
@@ -174,6 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('.arcade').innerHTML = '<img src="./assets/images/icon-arcade.svg" alt="Arcade"><div class="arc">Arcade</div><div class="price"> $9/mo</div>';
             document.querySelector('.advanced').innerHTML = '<img src="./assets/images/icon-advanced.svg" alt="Advanced"><div class="ad">Advanced</div><div class="price2"> $12/mo</div>';
             document.querySelector('.pro').innerHTML = '<img src="./assets/images/icon-pro.svg" alt="Pro"><div class="pr">Pro</div><div class="price3"> $15/mo</div>';
+            document.querySelector('.online').innerHTML = monthlyAddonOnlineService;
         }
     });
 
