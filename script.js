@@ -193,6 +193,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const arcadeValue = document.querySelector('.arcade');
     const advancedValue = document.querySelector('.advanced');
     const proValue = document.querySelector('.pro');
+    const onlineServiceValue = document.querySelector('#online-service');
+    const storageValue = document.querySelector('#larger-storage');
+    const profileValue = document.querySelector('#custom-profile');
+
 
     arcadeValue.addEventListener('click', function() {
 
@@ -202,6 +206,7 @@ document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('plan').value = this.querySelector('.price').textContent;
         }
         const selectedArcadePlan = document.getElementById('plan').value;
+        console.log(selectedArcadePlan);
 
     });
 
@@ -216,6 +221,31 @@ document.addEventListener('DOMContentLoaded', function() {
         const selectedAdvancedPlan = document.getElementById('plan').value;
         console.log(selectedAdvancedPlan);
 
+    });
+
+    proValue.addEventListener('click', (e) => {
+
+        if (document.getElementById('toggle').checked) {
+            document.getElementById('plan').value = this.querySelector('.price3').textContent;
+
+        } else {
+            document.getElementById('plan').value = this.querySelector('.price3').textContent;
+        }
+        const selectedProPlan = document.getElementById('plan').value;
+        console.log(selectedProPlan);
+
+    });
+
+    onlineServiceValue.addEventListener('click', (e) => {
+        //after selecting the online service, the value is stored in the value attribute
+        if (document.getElementById('toggle').checked) {
+            document.getElementById('online-service').value = this.querySelector('.price4').textContent;
+        } else {
+            document.getElementById('online-service').value = this.querySelector('.price4').textContent;
+
+        }
+        const selectedOnlineService = document.getElementById('online-service').value;
+        console.log(selectedOnlineService);
     });
 
 
