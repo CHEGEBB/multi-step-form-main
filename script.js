@@ -248,6 +248,30 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log(selectedOnlineService);
     });
 
+    storageValue.addEventListener('click', (e) => {
+        //after selecting the storage, the value is stored in the value attribute
+        if (document.getElementById('toggle').checked) {
+            document.getElementById('larger-storage').value = this.querySelector('.price5').textContent;
+        } else {
+            document.getElementById('larger-storage').value = this.querySelector('.price5').textContent;
+
+        }
+        const selectedStorage = document.getElementById('larger-storage').value;
+        console.log(selectedStorage);
+    });
+
+    profileValue.addEventListener('click', (e) => {
+        //after selecting the profile, the value is stored in the value attribute
+        if (document.getElementById('toggle').checked) {
+            document.getElementById('custom-profile').value = this.querySelector('.price6').textContent;
+        } else {
+            document.getElementById('custom-profile').value = this.querySelector('.price6').textContent;
+
+        }
+        const selectedProfile = document.getElementById('custom-profile').value;
+        console.log(selectedProfile);
+    });
+
 
 
 
