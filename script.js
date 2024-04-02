@@ -1,30 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const stepOne = document.getElementById('step-1-circle');
-    const stepTwo = document.getElementById('step-2-circle');
-    const stepThree = document.getElementById('step-3-circle');
-    const stepFour = document.getElementById('step-4-circle');
+    const stepOne = document.getElementById('next-personal-info');
+    const stepTwo = document.getElementById('next-plan');
+    const stepThree = document.getElementById('next-addon');
+    const stepFour = document.getElementById('next-finish');
     const personalInfo = document.getElementById('personal-info');
     const plan = document.getElementById('plan');
     const addons = document.getElementById('addon-step');
     const finish = document.getElementById('finish')
     const successMessage = document.getElementById('confirmation');
-    const nextButton = document.querySelectorAll('btn-next');
+    const firstActive = document.getElementById('step-1-circle');
+    const secondActive = document.getElementById('step-2-circle');
+    const thirdActive = document.getElementById('step-3-circle');
+    const fourthActive = document.getElementById('step-4-circle');
 
 
-    stepOne.parentElement.classList.add('active');
+    firstActive.parentElement.classList.add('active');
 
     stepOne.addEventListener('click', (e) => {
-        e.preventDefault();
-        personalInfo.classList.remove('hide');
-        plan.classList.add('hide');
-        addons.classList.add('hide');
-        finish.classList.add('hide');
-        successMessage.classList.add('hide');
-        removeActiveClassFromAllCircles();
-        stepOne.parentElement.classList.add('active');
-    });
-
-    stepTwo.addEventListener('click', (e) => {
         e.preventDefault();
         personalInfo.classList.add('hide');
         plan.classList.remove('hide');
@@ -32,10 +24,10 @@ document.addEventListener('DOMContentLoaded', function() {
         finish.classList.add('hide');
         successMessage.classList.add('hide');
         removeActiveClassFromAllCircles();
-        stepTwo.parentElement.classList.add('active');
+        secondActive.parentElement.classList.add('active');
     });
 
-    stepThree.addEventListener('click', (e) => {
+    stepTwo.addEventListener('click', (e) => {
         e.preventDefault();
         personalInfo.classList.add('hide');
         plan.classList.add('hide');
@@ -43,10 +35,10 @@ document.addEventListener('DOMContentLoaded', function() {
         finish.classList.add('hide');
         successMessage.classList.add('hide');
         removeActiveClassFromAllCircles();
-        stepThree.parentElement.classList.add('active');
+        thirdActive.parentElement.classList.add('active');
     });
 
-    stepFour.addEventListener('click', (e) => {
+    stepThree.addEventListener('click', (e) => {
         e.preventDefault();
         personalInfo.classList.add('hide');
         plan.classList.add('hide');
@@ -54,7 +46,18 @@ document.addEventListener('DOMContentLoaded', function() {
         finish.classList.remove('hide');
         successMessage.classList.add('hide');
         removeActiveClassFromAllCircles();
-        stepFour.parentElement.classList.add('active');
+        fourthActive.parentElement.classList.add('active');
+    });
+
+    stepFour.addEventListener('click', (e) => {
+        e.preventDefault();
+        personalInfo.classList.add('hide');
+        plan.classList.add('hide');
+        addons.classList.add('hide');
+        finish.classList.add('hide');
+        successMessage.classList.remove('hide');
+        removeActiveClassFromAllCircles();
+        fourthActive.parentElement.classList.add('active');
     });
 
     function removeActiveClassFromAllCircles() {
@@ -64,12 +67,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    nextButton.addEventListener('click', (e) => {
-
+    firstActive.addEventListener('click', (e) => {
         e.preventDefault();
+        personalInfo.classList.remove('hide');
+        plan.classList.add('hide');
+        addons.classList.add('hide');
+        finish.classList.add('hide');
+        successMessage.classList.add('hide');
+        removeActiveClassFromAllCircles();
+        firstActive.parentElement.classList.add('active');
+    });
 
-
-
+    secondActive.addEventListener('click', (e) => {
+        e.preventDefault();
+        personalInfo.classList.add('hide');
+        plan.classList.remove('hide');
+        addons.classList.add('hide');
+        finish.classList.add('hide');
+        successMessage.classList.add('hide');
+        removeActiveClassFromAllCircles();
+        secondActive.parentElement.classList.add('active');
     });
 
 
