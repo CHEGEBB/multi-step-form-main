@@ -237,44 +237,34 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     onlineServiceValue.addEventListener('click', (e) => {
-        //after selecting the online service, the value is stored in the value attribute
         if (document.getElementById('toggle').checked) {
             document.getElementById('online-service').value = this.querySelector('.price4').textContent;
         } else {
             document.getElementById('online-service').value = this.querySelector('.price4').textContent;
-
         }
         const selectedOnlineService = document.getElementById('online-service').value;
         console.log(selectedOnlineService);
     });
 
     storageValue.addEventListener('click', (e) => {
-        //after selecting the storage, the value is stored in the value attribute
         if (document.getElementById('toggle').checked) {
             document.getElementById('larger-storage').value = this.querySelector('.price5').textContent;
         } else {
             document.getElementById('larger-storage').value = this.querySelector('.price5').textContent;
-
         }
         const selectedStorage = document.getElementById('larger-storage').value;
         console.log(selectedStorage);
     });
 
     profileValue.addEventListener('click', (e) => {
-        //after selecting the profile, the value is stored in the value attribute
         if (document.getElementById('toggle').checked) {
             document.getElementById('custom-profile').value = this.querySelector('.price6').textContent;
         } else {
             document.getElementById('custom-profile').value = this.querySelector('.price6').textContent;
-
         }
         const selectedProfile = document.getElementById('custom-profile').value;
         console.log(selectedProfile);
     });
-
-
-
-
 
 
 
