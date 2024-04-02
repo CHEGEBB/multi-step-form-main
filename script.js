@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const personalInfo = document.getElementById('personal-info');
     const plan = document.getElementById('plan');
     const addons = document.getElementById('addon-step');
-    const finish = document.getElementById('finish')
+    const finish = document.getElementById('summary')
     const successMessage = document.getElementById('confirmation');
     const firstActive = document.getElementById('step-1-circle');
     const secondActive = document.getElementById('step-2-circle');
@@ -15,8 +15,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const backOne = document.querySelector('#back-one');
     const backTwo = document.querySelector('#back-two');
     const backThree = document.querySelector('#back-three');
-
-
     firstActive.parentElement.classList.add('active');
 
     stepOne.addEventListener('click', (e) => {
@@ -207,6 +205,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const selectedArcadePlan = document.getElementById('plan').value;
         console.log(selectedArcadePlan);
+        updateSummary();
 
     });
 
@@ -220,6 +219,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const selectedAdvancedPlan = document.getElementById('plan').value;
         console.log(selectedAdvancedPlan);
+        updateSummary();
 
     });
 
@@ -233,6 +233,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const selectedProPlan = document.getElementById('plan').value;
         console.log(selectedProPlan);
+        updateSummary();
 
     });
 
@@ -244,6 +245,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const selectedOnlineService = document.getElementById('online-service').value;
         console.log(selectedOnlineService);
+        updateSummary();
+
     });
 
     storageValue.addEventListener('click', (e) => {
@@ -254,6 +257,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const selectedStorage = document.getElementById('larger-storage').value;
         console.log(selectedStorage);
+        updateSummary();
+
     });
 
     profileValue.addEventListener('click', (e) => {
@@ -264,8 +269,86 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const selectedProfile = document.getElementById('custom-profile').value;
         console.log(selectedProfile);
+        updateSummary();
+
     });
 
+    function updateSummary() {
+        // Get a reference to the summary section
+        const summary = document.querySelector('.summary');
 
+        // Get selected plan
+        const selectedPlan = document.getElementById('plan').value;
+        const selectedPlanDiv = document.createElement('div');
+        const selectedPlanHeader = document.createElement('h3');
+        const selectedPlanText = document.createElement('p');
+        selectedPlanHeader.textContent = 'Selected Plan:';
+        selectedPlanText.textContent = selectedPlan;
+        selectedPlanDiv.appendChild(selectedPlanHeader);
+        selectedPlanDiv.appendChild(selectedPlanText);
+
+        // Update or append the selected plan to the summary section
+        let existingPlanDiv = summary.querySelector('.selected-plan');
+        if (existingPlanDiv) {
+            existingPlanDiv.replaceWith(selectedPlanDiv);
+        } else {
+            selectedPlanDiv.classList.add('selected-plan');
+            summary.insertBefore(selectedPlanDiv, summary.querySelector('.navigation-buttons')); // Insert before the navigation buttons
+        }
+
+        // Get selected addons
+        const addonCheckboxes = document.querySelectorAll('.addon-checkbox:checked');
+        const selectedAddonsDiv = document.createElement('div');
+        const selectedAddonsHeader = document.createElement('h3');
+        selectedAddonsHeader.textContent = 'Selected Addons:';
+        selectedAddonsDiv.appendChild(selectedAddonsHeader);
+
+        addonCheckboxes.forEach(checkbox => {
+            const addonDiv = document.createElement('div');
+            addonDiv.classList.add('selected-addon');
+
+            const addonName = document.createElement('p');
+            addonName.textContent = checkbox.nextElementSibling.querySelector('h3').textContent;
+            addonDiv.appendChild(addonName);
+
+            const addonPrice = document.createElement('p');
+            addonPrice.textContent = checkbox.nextElementSibling.querySelector('.price').textContent;
+            addonDiv.appendChild(addonPrice);
+
+            selectedAddonsDiv.appendChild(addonDiv);
+        });
+
+        // Update or append the selected addons to the summary section
+        let existingAddonsDiv = summary.querySelector('.selected-addons');
+        if (addonCheckboxes.length > 0) {
+            if (existingAddonsDiv) {
+                existingAddonsDiv.replaceWith(selectedAddonsDiv);
+            } else {
+                selectedAddonsDiv.classList.add('selected-addons');
+                summary.insertBefore(selectedAddonsDiv, summary.querySelector('.navigation-buttons')); // Insert before the navigation buttons
+            }
+        } else {
+            if (existingAddonsDiv) {
+                existingAddonsDiv.remove();
+            }
+        }
+
+        // Calculate total price
+        const totalPrice = calculateTotalPrice();
+        const totalPriceDiv = document.createElement('div');
+        totalPriceDiv.textContent = `Total Price: $${totalPrice}`;
+
+        // Update or append the total price to the summary section
+        let existingTotalPriceDiv = summary.querySelector('.total-price');
+        if (existingTotalPriceDiv) {
+            existingTotalPriceDiv.replaceWith(totalPriceDiv);
+        } else {
+            totalPriceDiv.classList.add('total-price');
+            summary.insertBefore(totalPriceDiv, summary.querySelector('.navigation-buttons')); // Insert before the navigation buttons
+        }
+
+        // Show the summary section
+        summary.classList.remove('hide');
+    }
 
 });
