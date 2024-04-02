@@ -92,6 +92,28 @@ document.addEventListener('DOMContentLoaded', function() {
         secondActive.parentElement.classList.add('active');
     });
 
+    thirdActive.addEventListener('click', (e) => {
+        e.preventDefault();
+        personalInfo.classList.add('hide');
+        plan.classList.add('hide');
+        addons.classList.remove('hide');
+        finish.classList.add('hide');
+        successMessage.classList.add('hide');
+        removeActiveClassFromAllCircles();
+        thirdActive.parentElement.classList.add('active');
+    });
+
+    fourthActive.addEventListener('click', (e) => {
+        e.preventDefault();
+        personalInfo.classList.add('hide');
+        plan.classList.add('hide');
+        addons.classList.add('hide');
+        finish.classList.remove('hide');
+        successMessage.classList.add('hide');
+        removeActiveClassFromAllCircles();
+        fourthActive.parentElement.classList.add('active');
+    });
+
     backOne.addEventListener('click', (e) => {
         e.preventDefault();
         personalInfo.classList.remove('hide');
@@ -126,6 +148,8 @@ document.addEventListener('DOMContentLoaded', function() {
         removeActiveClassFromAllCircles();
         thirdActive.parentElement.classList.add('active');
     });
+
+
 
 
 });
