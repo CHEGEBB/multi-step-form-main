@@ -105,20 +105,42 @@ body {
     font-weight: 500;
 
 }
+label{
+    font-size: 16px;
+    font-weight: 700;
+    color: hsl(213, 96%, 18%);
+
+}
+.input-group ::placeholder{
+    font-size: 16px;
+    font-weight: 500;
+    color: hsl(231, 11%, 63%);
+    font-family: Ubuntu;
+
+}
 .step-1{
 margin-top: -10px;
+}
+.step-number{
+    font-size: 14px;
+    font-weight: 700;
+    color:hsl(228, 100%, 84%) ;
+    margin-top: 20px;
+    text-transform: uppercase;
+
 }
 
 input {
     width: 450px;
     height: 40px;
-    border: 1.4px solid hsl(231, 11%, 63%);
+    border: 2px solid hsl(231, 11%, 63%);
     border-radius: 7px;
     margin-bottom: 10px;
     padding-left: 10px;
     display: flex;
     flex-direction: column;
     outline: none;
+    margin-top: 10px;
 }
 
 button {
@@ -159,6 +181,9 @@ button {
     background-color:hsl(206, 94%, 87%);
     color: black;
     border: 0;
+}
+.step-content{
+    margin-top: -20px;
 }
 .plans{
     display: flex;
@@ -339,5 +364,5 @@ button {
 .step-5 p{
     font-family: Ubuntu;
     font-weight: 500;
-    color: hsl(231, 11%, 63%);
+    color: hsl(228, 100%, 84%);
 }
