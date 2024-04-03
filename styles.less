@@ -423,88 +423,61 @@ button {
         width: 100%;
         height: 100%;
         margin-left: 0;
-        margin-top: 0;
+        margin-top: 300px;
         padding-left: 0;
         border-radius: 0;
+        order: 2;
     }
     .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        height: 460px;
-        width: 100%;
-        background-image: @sidebar-background-image;
-        background-repeat: no-repeat;
-        background-size: cover;
-        color: #fff;
-        padding-top: 20px;
-        z-index: 1000;
-        margin-top: 65px;
-        margin-left: 0;
-        border-radius: 0;
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+        align-items: center;
+        background-color: #f0f0f0;
+        padding: 10px;
+        width: 375px;
+        height: 100px;
+        margin-left: -40px;
     }
+    
+    .sidebar-content {
+        display: flex;
+        flex-direction: row;
+        
+    }
+    
     .sidebar-step {
         display: flex;
         align-items: center;
-        padding: 10px;
         cursor: pointer;
-        &:hover {
-            .sidebar-step-circle {
-                background-color: #777;
-            }
-        }
+        margin-right: 20px; /* Adjust spacing between steps */
     }
+    
+    .sidebar-step:last-child {
+        margin-right: 0; 
+    }
+    
     .sidebar-step-circle {
-        width: 40px;
-        height: 40px;
+        width: 20px;
+        height: 20px;
         border-radius: 50%;
-        background-color: transparent;
-        border: 2px solid #fff;
-        color: #fff;
+        background-color: #ddd;
+        border: 2px solid #888;
+        color: #888;
         display: flex;
         justify-content: center;
         align-items: center;
         margin-right: 10px;
     }
-    .sidebar-step-text {
-        font-size: 15px;
-        text-transform: uppercase;
+    
+    .step-number {
         font-weight: bold;
     }
-    .personal-content {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
+    
+    .sidebar-step-text {
+        font-size: 14px;
     }
-    .steps {
-        display: flex;
-        flex-direction: column;
-        margin-left: 20px;
-        margin-top: 30px;
-    }
-    .navigation-buttons {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        margin-top: 70px;
-        gap: 280px;
-    }
-    .navigation-buttons button {
-        margin: 0;
-        padding: 0;
-        margin-right: 5px;
-    }
-    .hide {
-        display: none;
-    }
-    .sidebar-step.active .sidebar-step-circle {
-        background-color: hsl(206, 94%, 87%);
-        color: black;
-        border: 0;
-    }
-    .step-content {
-        margin-top: -20px
-    }
+    
     .plans {
         display: flex;
         flex-direction: column;
