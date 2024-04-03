@@ -278,5 +278,100 @@ document.addEventListener('DOMContentLoaded', function () {
     }); // Inner HTML for total
 
     totalAmountElement.textContent = "$".concat(totalAmount);
+  } // Function to get selected plan
+
+
+  function selectedPlan() {
+    var planName = '';
+    var planPrice = '';
+    var planDur = '';
+
+    if (arcadeValue.classList.contains('selected')) {
+      planName = 'Arcade';
+      planPrice = '9';
+      planDur = 'mo';
+    } else if (advancedValue.classList.contains('selected')) {
+      planName = 'Advanced';
+      planPrice = '12';
+      planDur = 'mo';
+    } else if (proValue.classList.contains('selected')) {
+      planName = 'Pro';
+      planPrice = '15';
+      planDur = 'mo';
+    }
+
+    return {
+      planName: planName,
+      planPrice: planPrice,
+      planDur: planDur
+    };
+  } // Function to get selected add-ons
+
+
+  function selectedAddsOn() {
+    var addOns = [];
+
+    if (onlineServiceValue.classList.contains('selected')) {
+      addOns.push({
+        name: 'Online Service',
+        price: '1',
+        planDur: 'mo'
+      });
+    }
+
+    if (storageValue.classList.contains('selected')) {
+      addOns.push({
+        name: 'Larger Storage',
+        price: '2',
+        planDur: 'mo'
+      });
+    }
+
+    if (profileValue.classList.contains('selected')) {
+      addOns.push({
+        name: 'Customizable Profile',
+        price: '2',
+        planDur: 'mo'
+      });
+    }
+
+    return addOns;
+  } // Function to update summary
+
+
+  function updateSummary() {
+    var totalAmount = 0;
+    var planDuration = selectedPlan.planDur === 'mo' ? 'Monthly' : 'Yearly';
+    var planName = selectedPlan.planName;
+    var planPrice = selectedPlan.planPrice; // Clear innerHTML of the selected elements
+
+    summarySection.innerHTML = ''; // Add selected plan to summary
+
+    var planNameElement = document.createElement('p');
+    planNameElement.textContent = planName;
+    var durElement = document.createElement('p');
+    durElement.textContent = "(".concat(planDuration, ")");
+    var planPriceElement = document.createElement('p');
+    planPriceElement.textContent = "$".concat(planPrice, "/").concat(selectedPlan.planDur); // Append selected plan details to summary
+
+    summarySection.appendChild(planNameElement);
+    summarySection.appendChild(durElement);
+    summarySection.appendChild(planPriceElement); // Add selected plan price to total amount
+
+    totalAmount += parseInt(planPrice); // Add selected add-ons to summary and calculate total amount
+
+    selectedAddsOn().forEach(function (item) {
+      var addOnNameElement = document.createElement('p');
+      addOnNameElement.textContent = item.name;
+      var addOnPriceElement = document.createElement('p');
+      addOnPriceElement.textContent = "+$".concat(item.price, "/").concat(item.planDur); // Append selected add-on details to summary
+
+      summarySection.appendChild(addOnNameElement);
+      summarySection.appendChild(addOnPriceElement); // Add add-on price to total amount
+
+      totalAmount += parseInt(item.price);
+    }); // Inner HTML for total
+
+    totalAmountElement.textContent = "$".concat(totalAmount);
   }
 });

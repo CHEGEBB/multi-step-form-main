@@ -325,6 +325,112 @@ document.addEventListener('DOMContentLoaded', function() {
         totalAmountElement.textContent = `$${totalAmount}`;
     }
 
+    // Function to get selected plan
+    function selectedPlan() {
+        let planName = '';
+        let planPrice = '';
+        let planDur = '';
+
+        if (arcadeValue.classList.contains('selected')) {
+            planName = 'Arcade';
+            planPrice = '9';
+            planDur = 'mo';
+        } else if (advancedValue.classList.contains('selected')) {
+            planName = 'Advanced';
+            planPrice = '12';
+            planDur = 'mo';
+        } else if (proValue.classList.contains('selected')) {
+            planName = 'Pro';
+            planPrice = '15';
+            planDur = 'mo';
+        }
+
+        return {
+            planName,
+            planPrice,
+            planDur
+        };
+    }
+
+    // Function to get selected add-ons
+    function selectedAddsOn() {
+        let addOns = [];
+
+        if (onlineServiceValue.classList.contains('selected')) {
+            addOns.push({
+                name: 'Online Service',
+                price: '1',
+                planDur: 'mo'
+            });
+        }
+
+        if (storageValue.classList.contains('selected')) {
+            addOns.push({
+                name: 'Larger Storage',
+                price: '2',
+                planDur: 'mo'
+            });
+        }
+
+        if (profileValue.classList.contains('selected')) {
+            addOns.push({
+                name: 'Customizable Profile',
+                price: '2',
+                planDur: 'mo'
+            });
+        }
+
+        return addOns;
+    }
+
+    // Function to update summary
+    function updateSummary() {
+        let totalAmount = 0;
+        const planDuration = selectedPlan.planDur === 'mo' ? 'Monthly' : 'Yearly';
+        const planName = selectedPlan.planName;
+        const planPrice = selectedPlan.planPrice;
+
+        // Clear innerHTML of the selected elements
+        summarySection.innerHTML = '';
+
+        // Add selected plan to summary
+        let planNameElement = document.createElement('p');
+        planNameElement.textContent = planName;
+
+        let durElement = document.createElement('p');
+        durElement.textContent = `(${planDuration})`;
+
+        let planPriceElement = document.createElement('p');
+        planPriceElement.textContent = `$${planPrice}/${selectedPlan.planDur}`;
+
+        // Append selected plan details to summary
+        summarySection.appendChild(planNameElement);
+        summarySection.appendChild(durElement);
+        summarySection.appendChild(planPriceElement);
+
+        // Add selected plan price to total amount
+        totalAmount += parseInt(planPrice);
+
+        // Add selected add-ons to summary and calculate total amount
+        selectedAddsOn().forEach((item) => {
+            let addOnNameElement = document.createElement('p');
+            addOnNameElement.textContent = item.name;
+
+            let addOnPriceElement = document.createElement('p');
+            addOnPriceElement.textContent = `+$${item.price}/${item.planDur}`;
+
+            // Append selected add-on details to summary
+            summarySection.appendChild(addOnNameElement);
+            summarySection.appendChild(addOnPriceElement);
+
+            // Add add-on price to total amount
+            totalAmount += parseInt(item.price);
+        });
+
+        // Inner HTML for total
+        totalAmountElement.textContent = `$${totalAmount}`;
+    }
+
 
 
 });
