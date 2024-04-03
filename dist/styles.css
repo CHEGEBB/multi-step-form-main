@@ -175,7 +175,7 @@ label {
 input {
   width: 450px;
   height: 40px;
-  border: 1.5px solid hsl(231, 11%, 63%);
+  border: 1px solid hsl(231, 11%, 63%);
   border-radius: 7px;
   margin-bottom: 10px;
   padding-left: 10px;
