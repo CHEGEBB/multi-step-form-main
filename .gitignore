@@ -15,5 +15,3 @@
 .DS_Store
 .prettierignore
 
-# Ignore styles.css file
-styles.css

@@ -1,0 +1,844 @@
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCp6KVjbNBYlgoKejZftWyI.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCu6KVjbNBYlgoKeg7z.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCp6KVjbNBYlgoKejYHtGyI.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: italic;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCp6KVjbNBYlgoKejZPsmyI.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCv6KVjbNBYlgoC1CzTtw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCs6KVjbNBYlgo6eA.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCv6KVjbNBYlgoCjC3Ttw.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/ubuntu/v20/4iCv6KVjbNBYlgoCxCvTtw.ttf) format('truetype');
+}
+body {
+  background-color: hsl(217, 100%, 97%);
+  font-family: Ubuntu;
+}
+p {
+  color: hsl(231, 11%, 63%);
+  font-weight: 500;
+}
+h2,
+h3 {
+  font-family: Ubuntu;
+  font-size: 26px;
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+}
+.container {
+  background-color: hsl(0, 0%, 100%);
+  width: 550px;
+  height: 510px;
+  margin-left: 250px;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: row;
+  padding-left: 300px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.4);
+}
+.personal-content h2 {
+  font-size: 28px;
+  font-weight: 500;
+  color: hsl(213, 96%, 18%);
+}
+.personal-content p {
+  margin-top: -30px;
+  color: hsl(231, 11%, 63%);
+  font-weight: 500;
+}
+.steps {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  margin-top: 30px;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 460px;
+  width: 230px;
+  background-image: url("./assets/images/bg-sidebar-desktop.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  padding-top: 20px;
+  z-index: 1000;
+  margin-top: 65px;
+  margin-left: 270px;
+  border-radius: 10px;
+}
+.sidebar-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+.logo {
+  width: 50px;
+}
+.sidebar-step {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  cursor: pointer;
+}
+.sidebar-step:hover .sidebar-step-circle {
+  background-color: #777;
+}
+.sidebar-step-circle {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+}
+.sidebar-step-text {
+  font-size: 15px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+.personal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+label {
+  font-size: 16px;
+  font-weight: 700;
+  color: hsl(213, 96%, 18%);
+}
+.input-group ::placeholder {
+  font-size: 16px;
+  font-weight: 500;
+  color: hsl(231, 11%, 63%);
+  font-family: Ubuntu;
+}
+.step-1 {
+  margin-top: -10px;
+}
+.step-number {
+  font-size: 14px;
+  font-weight: 700;
+  color: hsl(228, 100%, 84%);
+  margin-top: 20px;
+  text-transform: uppercase;
+}
+input {
+  width: 450px;
+  height: 40px;
+  border: 2px solid hsl(231, 11%, 63%);
+  border-radius: 7px;
+  margin-bottom: 10px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: column;
+  outline: none;
+  margin-top: 10px;
+}
+button {
+  width: 100px;
+  height: 40px;
+  background-color: hsl(213, 96%, 18%);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 25px;
+  margin-left: 370px;
+}
+.navigation-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 70px;
+  gap: 280px;
+}
+.back {
+  background-color: white;
+  color: hsl(231, 11%, 63%);
+  border-radius: 5px;
+  font-family: Ubuntu;
+  font-weight: 700;
+}
+.navigation-buttons button {
+  margin: 0;
+  padding: 0;
+  margin-right: 5px;
+}
+.hide {
+  display: none;
+}
+.sidebar-step.active .sidebar-step-circle {
+  background-color: hsl(206, 94%, 87%);
+  color: black;
+  border: 0;
+}
+.step-content {
+  margin-top: -20px;
+}
+.plans {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.plans .types {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+}
+.plans .arcade,
+.plans .advanced,
+.plans .pro {
+  width: 130px;
+  height: 140px;
+  border: 1px solid hsl(231, 11%, 63%);
+  border-radius: 5px;
+}
+.plans .arcade:hover,
+.plans .advanced:hover,
+.plans .pro:hover {
+  border: 2px solid hsl(243, 100%, 62%);
+  cursor: pointer;
+}
+.plans .time-period {
+  background-color: hsl(217, 100%, 97%);
+  height: 50px;
+  border-radius: 5px;
+  width: 310px;
+  margin-left: 25px;
+  padding-left: 130px;
+  margin-top: 20px;
+  padding-top: 20px;
+  gap: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.plans .monthly {
+  color: hsl(213, 96%, 18%);
+  font-family: Ubuntu;
+  font-weight: 700;
+}
+.plans .yearly {
+  color: hsl(231, 11%, 63%);
+  font-family: Ubuntu;
+  font-weight: 700;
+}
+.plans .arc,
+.plans .ad,
+.plans .pr {
+  color: hsl(213, 96%, 18%);
+  font-size: 16px;
+  font-family: Ubuntu;
+  font-weight: 700;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+.plans .price,
+.plans .price2,
+.plans .price3 {
+  font-weight: 500;
+  font-size: 14px;
+  color: hsl(231, 11%, 63%);
+  margin-left: 20px;
+}
+.plans .arcade img,
+.plans .advanced img,
+.plans .pro img {
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.add-on-step {
+  margin-left: 30px;
+}
+.add-on-step .addons {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.add-on-step .online {
+  border: 1.5px solid hsl(243, 100%, 62%);
+  width: 440px;
+  height: 70px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.add-on-step .online h3,
+.add-on-step .storage h3,
+.add-on-step .profile h3 {
+  font-size: 15px;
+  color: hsl(213, 96%, 18%);
+}
+.add-on-step .online p,
+.add-on-step .storage p,
+.add-on-step .profile p {
+  font-size: 14px;
+  color: hsl(231, 11%, 63%);
+  margin-top: -10px;
+}
+.add-on-step .storage {
+  border: 1.5px solid hsl(243, 100%, 62%);
+  width: 440px;
+  height: 70px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.add-on-step .profile {
+  border: 1.5px solid hsl(243, 100%, 62%);
+  width: 440px;
+  height: 70px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: row;
+}
+.add-on-step .price4,
+.add-on-step .price6 {
+  font-weight: 500;
+  font-size: 14px;
+  color: hsl(243, 100%, 62%);
+  margin-left: 100px;
+  margin-top: 20px;
+}
+.add-on-step .price5 {
+  font-weight: 500;
+  font-size: 14px;
+  color: hsl(243, 100%, 62%);
+  margin-left: 140px;
+  margin-top: 20px;
+}
+.add-on-step .service,
+.add-on-step .service2,
+.add-on-step .service3 {
+  margin-left: 20px;
+}
+.add-on-step input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin-top: 20px;
+  margin-left: 20px;
+}
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 22px;
+}
+.toggle__input {
+  display: none;
+}
+.toggle__label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(213, 96%, 18%);
+  border-radius: 34px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.toggle__ball {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 18px;
+  height: 18px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s;
+}
+.toggle__input:checked + .toggle__label {
+  background-color: hsl(213, 96%, 18%);
+}
+.toggle__input:checked + .toggle__label .toggle__ball {
+  transform: translateX(26px);
+}
+.step-5 {
+  width: 400px;
+  text-align: center;
+  margin-top: 120px;
+  line-height: 1.5rem;
+}
+.step-5 p {
+  font-family: Ubuntu;
+  font-weight: 500;
+  color: hsl(228, 100%, 84%);
+}
+.subscription {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+  background-color: hsl(217, 100%, 97%);
+  border-radius: 5px;
+  width: 400px;
+  height: 170px;
+  margin-left: 20px;
+  padding-left: 20px;
+  padding-top: 20px;
+}
+.plan-subscribed {
+  font-size: 16px;
+  font-weight: 700;
+  color: hsl(213, 96%, 18%);
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+.addons-subscribed {
+  font-size: 16px;
+  font-weight: 700;
+  color: hsl(213, 96%, 18%);
+  display: flex;
+  flex-direction: row;
+  gap: 150px;
+}
+.total-subscribed {
+  display: flex;
+  flex-direction: row;
+  gap: 200px;
+  margin-top: 20px;
+  margin-left: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  color: hsl(213, 96%, 18%);
+}
+@media (max-width: 768px) {
+  body {
+    overflow: auto;
+    /* Allow body to scroll */
+  }
+  .container {
+    width: 100%;
+    height: 800px;
+    margin-left: 0;
+    margin-top: 150px;
+    /* Adjusted margin-top */
+    padding-left: 0;
+    border-radius: 0;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+    box-shadow: none;
+    overflow: hidden;
+    /* Hide overflow content */
+  }
+  .personal-content {
+    background-color: #fff;
+    width: 320px;
+    margin-left: -20px;
+    border-radius: 15px;
+    margin-top: 100px;
+    padding: 20px;
+    overflow: hidden;
+    /* Hide overflow content */
+  }
+  .sidebar {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 10px;
+    width: 375px;
+    height: 250px;
+    margin-left: -10px;
+    margin-top: -50px;
+    background-image: url("./assets/images/bg-sidebar-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    order: 1;
+    z-index: 3;
+    border-radius: 0;
+  }
+  .sidebar-content {
+    display: flex;
+    flex-direction: row;
+  }
+  .sidebar-step {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    margin-right: 20px;
+  }
+  .sidebar-step:last-child {
+    margin-right: 0;
+  }
+  .sidebar-step-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 2px solid #ffff;
+    color: #888;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+    z-index: 1000;
+    gap: 5px;
+  }
+  #step-1-circle,
+  #step-2-circle,
+  #step-3-circle,
+  #step-4-circle,
+  #step-5-circle {
+    color: #fff;
+    font-family: Ubuntu;
+    font-weight: 700;
+  }
+  .step-number {
+    font-weight: bold;
+    display: none;
+  }
+  .sidebar-step-text {
+    font-size: 14px;
+    display: none;
+  }
+  input {
+    width: 300px;
+  }
+  .personal-content p {
+    width: 310px;
+    font-size: 20px;
+  }
+  button {
+    margin-top: 50px;
+    margin-left: 220px;
+  }
+  .steps {
+    margin-top: -50px;
+  }
+  .plans {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  .plans .types {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
+    margin-left: -200px;
+    background-color: hsl(228, 100%, 84%);
+    width: 320px;
+    margin-left: -20px;
+    border-radius: 15px;
+    margin-top: 100px;
+    padding: 20px;
+    overflow: hidden;
+  }
+  .plans .sel p {
+    padding-top: 250px;
+    display: none;
+  }
+  .plans .arca,
+  .plans .adva,
+  .plans .proa {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  .plans .arcade,
+  .plans .advanced,
+  .plans .pro {
+    margin-top: 30px;
+    width: 300px;
+    height: 90px;
+    border: 2px solid hsl(231, 11%, 63%);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+  }
+  .plans .arcade:hover,
+  .plans .advanced:hover,
+  .plans .pro:hover {
+    border: 2px solid hsl(243, 100%, 62%);
+    cursor: pointer;
+  }
+  .plans .time-period {
+    background-color: hsl(217, 100%, 97%);
+    height: 50px;
+    border-radius: 5px;
+    width: 200px;
+    margin-left: 25px;
+    padding-left: 50px;
+    margin-top: 20px;
+    padding-top: 20px;
+    gap: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+  .plans .monthly {
+    color: hsl(213, 96%, 18%);
+    font-family: Ubuntu;
+    font-weight: 700;
+    margin-top: 20px;
+  }
+  .plans .yearly {
+    color: hsl(231, 11%, 63%);
+    font-family: Ubuntu;
+    font-weight: 700;
+  }
+  .plans .arc,
+  .plans .ad,
+  .plans .pr {
+    color: hsl(213, 96%, 18%);
+    font-size: 16px;
+    font-family: Ubuntu;
+    font-weight: 700;
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+  .plans .price,
+  .plans .price2,
+  .plans .price3 {
+    font-weight: 500;
+    font-size: 14px;
+    color: hsl(231, 11%, 63%);
+    margin-left: 20px;
+    margin-top: 30px;
+  }
+  .plans .arcade img,
+  .plans .advanced img,
+  .plans .pro img {
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  .navigation-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    gap: 100px;
+  }
+  .add-on-step {
+    margin-left: 30px;
+  }
+  .add-on-step .addons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 320px;
+    height: 350px;
+    margin-left: -20px;
+  }
+  .add-on-step .online {
+    border: 1.5px solid hsl(243, 100%, 62%);
+    width: 300px;
+    height: 70px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+  }
+  .add-on-step .online h3,
+  .add-on-step .storage h3,
+  .add-on-step .profile h3 {
+    font-size: 15px;
+    color: hsl(213, 96%, 18%);
+  }
+  .add-on-step .online p,
+  .add-on-step .storage p,
+  .add-on-step .profile p {
+    font-size: 12px;
+    color: hsl(231, 11%, 63%);
+    margin-top: -10px;
+    width: 200px;
+  }
+  .add-on-step .storage {
+    border: 1.5px solid hsl(243, 100%, 62%);
+    width: 300px;
+    height: 70px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+  }
+  .add-on-step .profile {
+    border: 1.5px solid hsl(243, 100%, 62%);
+    width: 300px;
+    height: 70px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+  }
+  .add-on-step .price4,
+  .add-on-step .price6 {
+    font-weight: 500;
+    font-size: 14px;
+    color: hsl(243, 100%, 62%);
+    margin-left: 100px;
+    margin-top: 20px;
+  }
+  .add-on-step .price5 {
+    font-weight: 500;
+    font-size: 14px;
+    color: hsl(243, 100%, 62%);
+    margin-left: 140px;
+    margin-top: 20px;
+  }
+  .add-on-step .service,
+  .add-on-step .service2,
+  .add-on-step .service3 {
+    margin-left: 20px;
+  }
+  .add-on-step input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+  .toggle {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 22px;
+  }
+  .toggle__input {
+    display: none;
+  }
+  .toggle__label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: hsl(213, 96%, 18%);
+    border-radius: 34px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .toggle__ball {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 18px;
+    height: 18px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: transform 0.3s;
+  }
+  .toggle__input:checked + .toggle__label {
+    background-color: hsl(213, 96%, 18%);
+  }
+  .toggle__input:checked + .toggle__label .toggle__ball {
+    transform: translateX(26px);
+  }
+  .step-5 {
+    width: 300px;
+    text-align: center;
+    margin-top: 120px;
+    line-height: 1.5rem;
+    margin-left: 20px;
+  }
+  .step-5 p {
+    font-family: Ubuntu;
+    font-weight: 500;
+    color: hsl(228, 100%, 84%);
+  }
+  .subscription {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    background-color: hsl(217, 100%, 97%);
+    border-radius: 5px;
+    width: 400px;
+    height: 170px;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+  .plan-subscribed {
+    font-size: 16px;
+    font-weight: 700;
+    color: hsl(213, 96%, 18%);
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+  }
+  .addons-subscribed {
+    font-size: 16px;
+    font-weight: 700;
+    color: hsl(213, 96%, 18%);
+    display: flex;
+    flex-direction: row;
+    gap: 150px;
+  }
+  .total-subscribed {
+    display: flex;
+    flex-direction: row;
+    gap: 200px;
+    margin-top: 20px;
+    margin-left: 30px;
+    font-size: 16px;
+    font-weight: 700;
+    color: hsl(213, 96%, 18%);
+  }
+  .subscription {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    background-color: hsl(217, 100%, 97%);
+    border-radius: 5px;
+    width: 300px;
+    height: 170px;
+    margin-left: 10px;
+    padding-left: 20px;
+    padding-top: 20px;
+  }
+}
