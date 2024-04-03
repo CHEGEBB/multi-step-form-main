@@ -242,44 +242,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var selectedProfile = document.getElementById('custom-profile').value;
     console.log(selectedProfile);
     updateSummary();
-  });
-
-  function updateSummary() {
-    var totalAmount = 0;
-    var planDuration = selectedPlan.planDur === 'mo' ? 'Monthly' : 'Yearly';
-    var planName = selectedPlan.planName;
-    var planPrice = selectedPlan.planPrice; // Clear innerHTML of the selected elements
-
-    summarySection.innerHTML = ''; // Add selected plan to summary
-
-    var planNameElement = document.createElement('p');
-    planNameElement.textContent = planName;
-    var durElement = document.createElement('p');
-    durElement.textContent = "(".concat(planDuration, ")");
-    var planPriceElement = document.createElement('p');
-    planPriceElement.textContent = "$".concat(planPrice, "/").concat(selectedPlan.planDur); // Append selected plan details to summary
-
-    summarySection.appendChild(planNameElement);
-    summarySection.appendChild(durElement);
-    summarySection.appendChild(planPriceElement); // Add selected plan price to total amount
-
-    totalAmount += parseInt(planPrice); // Add selected add-ons to summary and calculate total amount
-
-    selectedAddsOn().forEach(function (item) {
-      var addOnNameElement = document.createElement('p');
-      addOnNameElement.textContent = item.name;
-      var addOnPriceElement = document.createElement('p');
-      addOnPriceElement.textContent = "+$".concat(item.price, "/").concat(item.planDur); // Append selected add-on details to summary
-
-      summarySection.appendChild(addOnNameElement);
-      summarySection.appendChild(addOnPriceElement); // Add add-on price to total amount
-
-      totalAmount += parseInt(item.price);
-    }); // Inner HTML for total
-
-    totalAmountElement.textContent = "$".concat(totalAmount);
-  } // Function to get selected plan
-
+  }); // Function to get selected plan
 
   function selectedPlan() {
     var planName = '';

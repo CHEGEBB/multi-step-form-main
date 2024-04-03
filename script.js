@@ -278,53 +278,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
 
-    function updateSummary() {
-        let totalAmount = 0;
-        const planDuration = selectedPlan.planDur === 'mo' ? 'Monthly' : 'Yearly';
-        const planName = selectedPlan.planName;
-        const planPrice = selectedPlan.planPrice;
-
-        // Clear innerHTML of the selected elements
-        summarySection.innerHTML = '';
-
-        // Add selected plan to summary
-        let planNameElement = document.createElement('p');
-        planNameElement.textContent = planName;
-
-        let durElement = document.createElement('p');
-        durElement.textContent = `(${planDuration})`;
-
-        let planPriceElement = document.createElement('p');
-        planPriceElement.textContent = `$${planPrice}/${selectedPlan.planDur}`;
-
-        // Append selected plan details to summary
-        summarySection.appendChild(planNameElement);
-        summarySection.appendChild(durElement);
-        summarySection.appendChild(planPriceElement);
-
-        // Add selected plan price to total amount
-        totalAmount += parseInt(planPrice);
-
-        // Add selected add-ons to summary and calculate total amount
-        selectedAddsOn().forEach((item) => {
-            let addOnNameElement = document.createElement('p');
-            addOnNameElement.textContent = item.name;
-
-            let addOnPriceElement = document.createElement('p');
-            addOnPriceElement.textContent = `+$${item.price}/${item.planDur}`;
-
-            // Append selected add-on details to summary
-            summarySection.appendChild(addOnNameElement);
-            summarySection.appendChild(addOnPriceElement);
-
-            // Add add-on price to total amount
-            totalAmount += parseInt(item.price);
-        });
-
-        // Inner HTML for total
-        totalAmountElement.textContent = `$${totalAmount}`;
-    }
-
     // Function to get selected plan
     function selectedPlan() {
         let planName = '';
