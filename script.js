@@ -279,55 +279,52 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     function updateSummary() {
-        //we use a loop a switch case to check the plans and addons one by one an if the selected value or value is selected it returns true and we forcefullly writes some html content to the summary section
-        let plan = planValue.value;
-        let online = onlineService.value;
+        let totalAmount = 0;
+        const planDuration = selectedPlan.planDur === 'mo' ? 'Monthly' : 'Yearly';
+        const planName = selectedPlan.planName;
+        const planPrice = selectedPlan.planPrice;
 
-        let storage = storage.value;
-        let profile = profile.value;
-        let monthly = document.getElementById('toggle').checked;
-        let yearly = !document.getElementById('toggle').checked;
-        let summary = '';
-        let total = 0;
-        if (plan) {
-            if (monthly) {
-                summary += monthlyContent;
-                total += parseInt(plan.split('/')[0].split('$')[1]);
-            } else {
-                summary += yearlyContent;
-                total += parseInt(plan.split('/')[0].split('$')[1]);
-            }
-        }
-        if (online) {
-            if (monthly) {
-                summary += onlineServiceContent;
-                total += parseInt(online.split('/')[1].split('$')[1]);
-            } else {
-                summary += onlineServiceContent;
-                total += parseInt(online.split('/')[1].split('$')[1]);
-            }
-        }
-        if (storage) {
-            if (monthly) {
-                summary += storageContent;
-                total += parseInt(storage.split('/')[1].split('$')[1]);
-            } else {
-                summary += storageContent;
-                total += parseInt(storage.split('/')[1].split('$')[1]);
-            }
-        }
-        if (profile) {
-            if (monthly) {
-                summary += profileContent;
-                total += parseInt(profile.split('/')[1].split('$')[1]);
-            } else {
-                summary += profileContent;
-                total += parseInt(profile.split('/')[1].split('$')[1]);
-            }
-        }
-        summarySection.innerHTML = summary;
-        totalAmount.textContent = `$${total}`;
+        // Clear innerHTML of the selected elements
+        summarySection.innerHTML = '';
+
+        // Add selected plan to summary
+        let planNameElement = document.createElement('p');
+        planNameElement.textContent = planName;
+
+        let durElement = document.createElement('p');
+        durElement.textContent = `(${planDuration})`;
+
+        let planPriceElement = document.createElement('p');
+        planPriceElement.textContent = `$${planPrice}/${selectedPlan.planDur}`;
+
+        // Append selected plan details to summary
+        summarySection.appendChild(planNameElement);
+        summarySection.appendChild(durElement);
+        summarySection.appendChild(planPriceElement);
+
+        // Add selected plan price to total amount
+        totalAmount += parseInt(planPrice);
+
+        // Add selected add-ons to summary and calculate total amount
+        selectedAddsOn().forEach((item) => {
+            let addOnNameElement = document.createElement('p');
+            addOnNameElement.textContent = item.name;
+
+            let addOnPriceElement = document.createElement('p');
+            addOnPriceElement.textContent = `+$${item.price}/${item.planDur}`;
+
+            // Append selected add-on details to summary
+            summarySection.appendChild(addOnNameElement);
+            summarySection.appendChild(addOnPriceElement);
+
+            // Add add-on price to total amount
+            totalAmount += parseInt(item.price);
+        });
+
+        // Inner HTML for total
+        totalAmountElement.textContent = `$${totalAmount}`;
     }
+
 
 
 });
