@@ -245,75 +245,57 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function updateSummary() {
-    // Get a reference to the summary section
-    var summary = document.querySelector('.summary'); // Get selected plan
+    //we use a loop a switch case to check the plans and addons one by one an if the selected value or value is selected it returns true and we forcefullly writes some html content to the summary section
+    var plan = planValue.value;
+    var online = onlineService.value;
+    var storage = storage.value;
+    var profile = profile.value;
+    var monthly = document.getElementById('toggle').checked;
+    var yearly = !document.getElementById('toggle').checked;
+    var summary = '';
+    var total = 0;
 
-    var selectedPlan = document.getElementById('plan').value;
-    var selectedPlanDiv = document.createElement('div');
-    var selectedPlanHeader = document.createElement('h3');
-    var selectedPlanText = document.createElement('p');
-    selectedPlanHeader.textContent = 'Selected Plan:';
-    selectedPlanText.textContent = selectedPlan;
-    selectedPlanDiv.appendChild(selectedPlanHeader);
-    selectedPlanDiv.appendChild(selectedPlanText); // Update or append the selected plan to the summary section
-
-    var existingPlanDiv = summary.querySelector('.selected-plan');
-
-    if (existingPlanDiv) {
-      existingPlanDiv.replaceWith(selectedPlanDiv);
-    } else {
-      selectedPlanDiv.classList.add('selected-plan');
-      summary.insertBefore(selectedPlanDiv, summary.querySelector('.navigation-buttons')); // Insert before the navigation buttons
-    } // Get selected addons
-
-
-    var addonCheckboxes = document.querySelectorAll('.addon-checkbox:checked');
-    var selectedAddonsDiv = document.createElement('div');
-    var selectedAddonsHeader = document.createElement('h3');
-    selectedAddonsHeader.textContent = 'Selected Addons:';
-    selectedAddonsDiv.appendChild(selectedAddonsHeader);
-    addonCheckboxes.forEach(function (checkbox) {
-      var addonDiv = document.createElement('div');
-      addonDiv.classList.add('selected-addon');
-      var addonName = document.createElement('p');
-      addonName.textContent = checkbox.nextElementSibling.querySelector('h3').textContent;
-      addonDiv.appendChild(addonName);
-      var addonPrice = document.createElement('p');
-      addonPrice.textContent = checkbox.nextElementSibling.querySelector('.price').textContent;
-      addonDiv.appendChild(addonPrice);
-      selectedAddonsDiv.appendChild(addonDiv);
-    }); // Update or append the selected addons to the summary section
-
-    var existingAddonsDiv = summary.querySelector('.selected-addons');
-
-    if (addonCheckboxes.length > 0) {
-      if (existingAddonsDiv) {
-        existingAddonsDiv.replaceWith(selectedAddonsDiv);
+    if (plan) {
+      if (monthly) {
+        summary += monthlyContent;
+        total += parseInt(plan.split('/')[0].split('$')[1]);
       } else {
-        selectedAddonsDiv.classList.add('selected-addons');
-        summary.insertBefore(selectedAddonsDiv, summary.querySelector('.navigation-buttons')); // Insert before the navigation buttons
+        summary += yearlyContent;
+        total += parseInt(plan.split('/')[0].split('$')[1]);
       }
-    } else {
-      if (existingAddonsDiv) {
-        existingAddonsDiv.remove();
+    }
+
+    if (online) {
+      if (monthly) {
+        summary += onlineServiceContent;
+        total += parseInt(online.split('/')[1].split('$')[1]);
+      } else {
+        summary += onlineServiceContent;
+        total += parseInt(online.split('/')[1].split('$')[1]);
       }
-    } // Calculate total price
+    }
 
+    if (storage) {
+      if (monthly) {
+        summary += storageContent;
+        total += parseInt(storage.split('/')[1].split('$')[1]);
+      } else {
+        summary += storageContent;
+        total += parseInt(storage.split('/')[1].split('$')[1]);
+      }
+    }
 
-    var totalPrice = calculateTotalPrice();
-    var totalPriceDiv = document.createElement('div');
-    totalPriceDiv.textContent = "Total Price: $".concat(totalPrice); // Update or append the total price to the summary section
+    if (profile) {
+      if (monthly) {
+        summary += profileContent;
+        total += parseInt(profile.split('/')[1].split('$')[1]);
+      } else {
+        summary += profileContent;
+        total += parseInt(profile.split('/')[1].split('$')[1]);
+      }
+    }
 
-    var existingTotalPriceDiv = summary.querySelector('.total-price');
-
-    if (existingTotalPriceDiv) {
-      existingTotalPriceDiv.replaceWith(totalPriceDiv);
-    } else {
-      totalPriceDiv.classList.add('total-price');
-      summary.insertBefore(totalPriceDiv, summary.querySelector('.navigation-buttons')); // Insert before the navigation buttons
-    } // Show the summary section
-
-
-    summary.classList.remove('hide');
+    summarySection.innerHTML = summary;
+    totalAmount.textContent = "$".concat(total);
   }
 });
