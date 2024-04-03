@@ -425,7 +425,7 @@ button {
     
     .container {
         width: 100%;
-        height: 700px;
+        height: 800px;
         margin-left: 0;
         margin-top: 150px; /* Adjusted margin-top */
         padding-left: 0;
@@ -438,9 +438,10 @@ button {
     }
     
     .personal-content {
-        background-color: red;
+        background-color: #fff;
         width: 320px;
         margin-left: -20px;
+        border-radius: 15px;
         margin-top: 100px;
         padding: 20px;
         overflow: hidden; /* Hide overflow content */
@@ -461,7 +462,7 @@ button {
         background-repeat: no-repeat;
         background-size: cover;
         order: 1;
-        z-index: -1;
+        z-index: 3;
         border-radius: 0;
     }
     
@@ -534,10 +535,22 @@ button {
             align-items: center;
             justify-content: center;
             margin-left: -200px;
-            background-color: #fff;
+            background-color: hsl(228, 100%, 84%);
+            width: 320px;
+            margin-left: -20px;
+            border-radius: 15px;
+            margin-top: 100px;
+            padding: 20px;
+            overflow: hidden;
         }
-        .plan h3{
-            margin-top: 50px;
+        .sel p{
+            padding-top: 250px;
+            display: none;
+        }
+        .arca,.adva,.proa{
+            display: flex;
+            flex-direction: column;
+            margin-top: 10px;
         }
         .arcade,
         .advanced,
@@ -545,7 +558,7 @@ button {
             margin-top: 30px;
             width: 300px;
             height: 90px;
-            border: 1px solid hsl(231, 11%, 63%);
+            border: 2px solid hsl(231, 11%, 63%);
             border-radius: 5px;
             display: flex;
             flex-direction: row;
@@ -561,9 +574,9 @@ button {
             background-color: hsl(217, 100%, 97%);
             height: 50px;
             border-radius: 5px;
-            width: 310px;
+            width: 200px;
             margin-left: 25px;
-            padding-left: 130px;
+            padding-left: 50px;
             margin-top: 20px;
             padding-top: 20px;
             gap: 20px;
@@ -574,6 +587,7 @@ button {
             color: hsl(213, 96%, 18%);
             font-family: Ubuntu;
             font-weight: 700;
+            margin-top: 20px;
         }
         .yearly {
             color: hsl(231, 11%, 63%);
@@ -588,7 +602,7 @@ button {
             font-family: Ubuntu;
             font-weight: 700;
             margin-left: 20px;
-            margin-top: 20px;
+            margin-top: 30px;
         }
         .price,
         .price2,
@@ -597,6 +611,7 @@ button {
             font-size: 14px;
             color: hsl(231, 11%, 63%);
             margin-left: 20px;
+            margin-top: 30px;
         }
         .arcade img,
         .advanced img,
@@ -605,16 +620,26 @@ button {
             margin-left: 20px;
         }
     }
+    .navigation-buttons{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 10px;
+        gap: 100px;
+    }
     .add-on-step {
         margin-left: 30px;
         .addons {
             display: flex;
             flex-direction: column;
             gap: 15px;
+            width: 320px;
+            height: 350px;
+            margin-left: -20px;
         }
         .online {
             border: 1.5px solid hsl(243, 100%, 62%);
-            width: 440px;
+            width: 300px;
             height: 70px;
             border-radius: 5px;
             display: flex;
@@ -629,13 +654,14 @@ button {
         .online p,
         .storage p,
         .profile p {
-            font-size: 14px;
+            font-size: 12px;
             color: hsl(231, 11%, 63%);
             margin-top: -10px;
+            width: 200px;
         }
         .storage {
             border: 1.5px solid hsl(243, 100%, 62%);
-            width: 440px;
+            width: 300px;
             height: 70px;
             border-radius: 5px;
             display: flex;
@@ -643,7 +669,7 @@ button {
         }
         .profile {
             border: 1.5px solid hsl(243, 100%, 62%);
-            width: 440px;
+            width: 300px;
             height: 70px;
             border-radius: 5px;
             display: flex;
@@ -713,10 +739,11 @@ button {
         transform: translateX(26px);
     }
     .step-5 {
-        width: 400px;
+        width: 300px;
         text-align: center;
         margin-top: 120px;
         line-height: 1.5rem;
+        margin-left: 20px;
     }
     .step-5 p {
         font-family: Ubuntu;
@@ -762,6 +789,20 @@ button {
         font-size: 16px;
         font-weight: 700;
         color: hsl(213, 96%, 18%);
+    }
+    .subscription{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+        margin-top: 20px;
+        background-color: hsl(217, 100%, 97%);
+        border-radius: 5px;
+        width: 300px;
+        height: 170px;
+        margin-left: 10px;
+        padding-left: 20px;
+        padding-top: 20px;
     }
 }
 
